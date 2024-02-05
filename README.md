@@ -1,7 +1,7 @@
 # Snapfu Library
 This repository contains files utilized by Snapfu to build and patch Snap projects.
 
-https://github.com/searchspring/snapfu
+https://github.com/searchspring/snapfu  
 https://www.npmjs.com/package/snapfu
 
 ## Components
