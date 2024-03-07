@@ -18,7 +18,7 @@ export const {{ snapfu.variables.name }} = observer((props) => {
 
 	return (
 		store.results.length > 0 && (
-			<Recommendation controller={controller}/>
+			<Recommendation controller={controller} title={parameters?.title}/>
 		)
 	);
 });
