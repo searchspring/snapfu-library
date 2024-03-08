@@ -15,5 +15,5 @@ export const {{ snapfu.variables.name }} = observer((props) => {
 
 	const parameters = store?.profile?.display?.templateParameters;
 
-	return store.results.length > 0 && <RecommendationBundle controller={controller} onAddToCart={(items)=> controller.log.debug("need to add these to the platform cart", items)}  title={parameters?.title} />;
+	return store.results.length > 0 && <RecommendationBundle controller={controller} onAddToCart={(e, items)=> controller.log.debug("need to add these to the platform cart", items)}  title={parameters?.title} />;
 });
