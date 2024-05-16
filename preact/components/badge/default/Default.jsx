@@ -5,20 +5,20 @@ import { CacheProvider } from '@searchspring/snap-preact-components';
 import { observer } from 'mobx-react';
 
 const CSS = {
-	{{ snapfu.variables.name }}: () => {
+	{{ snapfu.variables.component }}: () => {
 		return css({
 		});
 	},
 };
 
-export const {{ snapfu.variables.name }} = observer((props) => {
+export const {{ snapfu.variables.component }} = observer((props) => {
 	
 	const { tag, value, parameters } = props;
 	const {} = parameters;
 
 	return (
 		<CacheProvider>
-			<div css={CSS.{{ snapfu.variables.name }}()} className={`ss__badge-custom ss__badge-custom--${tag}`}>{ value }</div>
+			<div css={CSS.{{ snapfu.variables.component }}()} className={`ss__badge-{{ snapfu.variables.class }} ss__badge-{{ snapfu.variables.class }}--${tag}`}>{ value }</div>
 		</CacheProvider>
 	)
 });
