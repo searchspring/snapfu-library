@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { Result } from '@searchspring/snap-preact-components';
 
-import './{{ snapfu.variables.name }}.scss';
+import './{{ snapfu.variables.component }}.scss';
 
 /**
  * COMPONENT MUST BE FULLY SELF-CONTAINED
@@ -24,7 +24,7 @@ import './{{ snapfu.variables.name }}.scss';
  * 
  **/
 
-export const {{ snapfu.variables.name }} = observer((props) => {
+export const {{ snapfu.variables.component }} = observer((props) => {
 	const controller = props.controller;
 	const store = controller?.store;
 
