@@ -1,0 +1,23 @@
+/*
+	SASS for use in bundle component
+	edit as needed
+*/
+.ss__easy-add {
+	width: 100%;
+	border: 2px solid black;
+	padding: 5px;
+
+	.ss__recommendation-bundle__wrapper__cta {
+		.thanks_button {
+			background: white;
+			border: 3px solid black;
+			color: black;
+		}
+
+		.ss__button {
+			border: 3px solid black;
+			background: white;
+			color:black;
+		}
+	}
+}
