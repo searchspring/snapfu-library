@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import { useEffect } from 'preact/hooks';
 import { observer } from 'mobx-react';
-import { addToCart } from '@searchspring/snap-platforms/shopify';
-
 import { RecommendationBundle, Result as _Result } from '@searchspring/snap-preact-components';
+
+{{ snapfu.variables.addToCart }}
 
 import './{{ snapfu.variables.component }}.scss';
 

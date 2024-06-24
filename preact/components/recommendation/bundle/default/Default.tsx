@@ -1,9 +1,9 @@
 import { h } from 'preact';
 import { observer } from 'mobx-react';
-import { addToCart } from '@searchspring/snap-platforms/shopify';
 import { RecommendationBundle } from '@searchspring/snap-preact-components';
 
 import './{{ snapfu.variables.component }}.scss';
+{{ snapfu.variables.addToCart }}
 
 export const {{ snapfu.variables.component }} = observer((props) => {
 	const controller = props.controller;
