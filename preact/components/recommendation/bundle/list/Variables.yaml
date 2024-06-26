@@ -6,13 +6,25 @@ variables: [
     name: 'addToCart',
     message: 'Choose an addToCart method:',
     type: 'list',
-    choices: ['shopify', 'magento2', 'bigcommerce', 'custom'],
-    choicesMap: {
-      shopify: "import { addToCart } from '@searchspring/snap-platforms/shopify';",
-      magento2: "import { addToCart } from '@searchspring/snap-platforms/magento2';",
-      bigcommerce: "import { addToCart } from '@searchspring/snap-platforms/bigcommerce';",
-      custom: "const addToCart = (e, items)=> console.log('need to add these to the platform cart', items);",
-    },
+    choices: [
+      {
+        name: 'shopify',
+        value: "import { addToCart } from '@searchspring/snap-platforms/shopify';",
+      },
+      {
+        name: 'bigcommerce',
+        value:  "import { addToCart } from '@searchspring/snap-platforms/bigcommerce';",
+      },
+      {
+        name: 'magento2',
+        value: "import { addToCart } from '@searchspring/snap-platforms/magento2';",
+      },
+      {
+        name: custom,
+        value: "const addToCart = (e, items)=> console.log('need to add these to the platform cart', items);",
+
+      }
+    ],
     default: 'custom',
   },
 ]

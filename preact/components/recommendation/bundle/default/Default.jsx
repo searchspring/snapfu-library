@@ -9,8 +9,6 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 	const controller = props.controller;
 	const store = controller?.store;
 
-	const thing = {{ snapfu.variables.customInput }}
-
 	if (!controller.store.loaded && !controller.store.loading) {
 		controller.search();
 	}
