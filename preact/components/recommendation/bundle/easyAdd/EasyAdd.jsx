@@ -1,13 +1,13 @@
 import { h } from 'preact';
 import { useEffect } from 'preact/hooks';
 import { observer } from 'mobx-react';
-import { RecommendationBundle, Result as _Result } from '@searchspring/snap-preact-components';
+import { RecommendationBundle, Result } from '@searchspring/snap-preact-components';
 
 {{ snapfu.variables.addToCart }}
 
 import './{{ snapfu.variables.component }}.scss';
 
-const Result = observer((props) => {
+const EasyAddResult = observer((props) => {
 	const { result, seed } = props;
 
 	const resultProps = {
@@ -18,7 +18,7 @@ const Result = observer((props) => {
 	return (
 		!seed && (
 			<div class="ss__bundled-result">
-				<_Result {...resultProps} />
+				<Result {...resultProps} />
 			</div>
 		)
 	);
@@ -30,8 +30,7 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 	const parameters = store?.profile?.display?.templateParameters;
 
 	useEffect(() => {
-		// useEffect here is used to load recommendations on no results
-		if (!controller.store.loaded) {
+		if (!controller.store.loaded && !controller.store.loading) {
 			controller.search();
 		}
 	}, []);
@@ -43,7 +42,7 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 		seedText: false,
 		ctaButtonText: 'Add Both',
 		ctaButtonSuccessText: 'Added!',
-		resultComponent: <Result />,
+		resultComponent: <EasyAddResult />,
 		onAddToCart: (e, data) => addToCart(data),
 		ctaInline: false,
 		limit: 2,

@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { useEffect } from 'preact/hooks';
 import { observer } from 'mobx-react';
 import { RecommendationBundle } from '@searchspring/snap-preact-components';
 
@@ -9,9 +10,11 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 	const controller = props.controller;
 	const store = controller?.store;
 
-	if (!controller.store.loaded && !controller.store.loading) {
-		controller.search();
-	}
+	useEffect(() => {
+		if (!controller.store.loaded && !controller.store.loading) {
+			controller.search();
+		}
+	}, []);
 
 	const parameters = store?.profile?.display?.templateParameters;
 

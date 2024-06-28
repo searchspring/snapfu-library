@@ -21,7 +21,7 @@
 		order: 2;
 		padding: 10px 0px;
 
-		.thanks_button {
+		.cta__add-button--thanks {
 			background: white;
 			border: 3px solid black;
 			color: black;
@@ -38,19 +38,12 @@
 		.ss__recommendation-bundle__title {
 			order:1;
 		}
-		.seedContainer {
-			.ss__recommendation-bundle__wrapper__selector {
-				.ss__recommendation-bundle__wrapper__selector__icon {
-					right: -2.7em;
-				}
-			}
-		}
 	
 		.ss__checkbox {
 			
 			cursor: pointer;
 			background-color: white;
-			&.bundle-checked {
+			&.ss__bundled__result--bundle-checked {
 				background-color: black;
 				svg {
 					fill: white;

@@ -1,7 +1,7 @@
 import { h, Fragment } from 'preact';
 import { useEffect } from 'preact/hooks';
 import { observer } from 'mobx-react';
-import { RecommendationBundle, Carousel, Result as _Result, Image, Price, Button, Checkbox, Icon } from '@searchspring/snap-preact-components';
+import { RecommendationBundle, Carousel, Image, Price, Button, Checkbox, Icon } from '@searchspring/snap-preact-components';
 
 {{ snapfu.variables.addToCart }}
 
@@ -59,7 +59,7 @@ const CTASlot = observer((props) => {
 				<Button
 					disabled={cartStore.items.length == 0}
 					disableStyles
-					className={`${props.addedToCart ? 'thanks_button' : ''}`}
+					className={`cta__add-button ${props.addedToCart ? 'cta__add-button--thanks' : ''}`}
 					onClick={() => props.onAddToCart()}
 				>
 					{props.addedToCart ? props.ctaButtonSuccessText : props.ctaButtonText}
@@ -69,7 +69,7 @@ const CTASlot = observer((props) => {
 	);
 });
 
-const Result = observer((props) => {
+const ListResult = observer((props) => {
 	const { result, selected, seed, onProductSelect } = props;
 	const core = result.display.mappings.core;
 
@@ -77,7 +77,7 @@ const Result = observer((props) => {
 		<>
 			<div class="ss__bundled__result">
 				<Checkbox
-					className={selected ? 'bundle-checked' : 'bundle-add'}
+					className={selected ? 'ss__bundled__result--bundle-checked' : 'ss__bundled__result--bundle-add'}
 					icon={selected ? 'check' : 'plus-thin'}
 					checked={true}
 					size={'20px'}
@@ -111,8 +111,7 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 	const parameters = store?.profile?.display?.templateParameters;
 
 	useEffect(() => {
-		// useEffect here is used to load recommendations on no results
-		if (!controller.store.loaded) {
+		if (!controller.store.loaded && !controller.store.loading) {
 			controller.search();
 		}
 	}, []);
@@ -123,10 +122,10 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 		hideCheckboxes: true,
 		ctaSlot: <CTASlot />,
 		seedText: '',
-		resultComponent: <Result />,
+		resultComponent: <ListResult />,
 		onAddToCart: (e, data) => addToCart(data),
 		ctaInline: false,
-		ctaButtonText: 'Add Both',
+		ctaButtonText: 'Add Bundle',
 		ctaButtonSuccessText: 'Added!',
 		preselectedCount: 2,
 		carousel: {

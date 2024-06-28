@@ -8,10 +8,10 @@
 	border: 1px solid black;
 	padding: 5px;
 
-	.seperator-wrapper {
+	.ss-bundled-result__seperator-wrapper {
 		text-align: center;
 		margin-bottom: 10px;
-		.iconWrapper {
+		.ss-bundled-result__seperator-wrapper__iconWrapper {
 			padding: 0px 15px;
 			background: white;
 			display: inline-block;
@@ -20,7 +20,7 @@
 		}
 	}
 
-	.seperator-wrapper:before {
+	.ss-bundled-result__seperator-wrapper:before {
 		content: '';
 		width: 90%;
 		height: 1px;
@@ -37,7 +37,7 @@
 			align-self: center;
 			cursor: pointer;
 			background-color: white;
-			&.bundle-checked {
+			&.ss-bundled-result--bundle-checked {
 				background-color: black;
 				svg {
 					fill: white;

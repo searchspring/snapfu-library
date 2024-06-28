@@ -1,13 +1,13 @@
 import { h, Fragment } from 'preact';
 import { useEffect } from 'preact/hooks';
 import { observer } from 'mobx-react';
-import { RecommendationBundle, Result as _Result, Checkbox, Icon } from '@searchspring/snap-preact-components';
+import { RecommendationBundle, Result, Checkbox, Icon } from '@searchspring/snap-preact-components';
 
 {{ snapfu.variables.addToCart }}
 
 import './{{ snapfu.variables.component }}.scss';
 
-const Result = observer((props) => {
+const VerticalResult = observer((props) => {
 	const { result, selected, seed, onProductSelect } = props;
 	
 	const resultProps = {
@@ -19,19 +19,19 @@ const Result = observer((props) => {
 		<>
 			<div class="ss-bundled-result">
 				<Checkbox
-					className={selected ? 'bundle-checked' : 'bundle-add'}
+					className={selected ? 'ss-bundled-result--bundle-checked' : 'ss-bundled-result--bundle-add'}
 					icon={selected ? 'check' : 'plus-thin'}
 					checked={true}
 					size={'20px'}
 					onClick={() => onProductSelect(result)}
 				/>
 
-				<_Result {...resultProps} />
+				<Result {...resultProps} />
 			</div>
 
 			{seed ? (
-				<div className="seperator-wrapper">
-					<div className="iconWrapper">
+				<div className="ss-bundled-result__seperator-wrapper">
+					<div className="ss-bundled-result__seperator-wrapper__iconWrapper">
 						<Icon icon={'plus-thin'} />
 					</div>
 				</div>
@@ -48,8 +48,7 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 	const parameters = store?.profile?.display?.templateParameters;
 
 	useEffect(() => {
-		// useEffect here is used to load recommendations on no results
-		if (!controller.store.loaded) {
+		if (!controller.store.loaded && !controller.store.loading) {
 			controller.search();
 		}
 	}, []);
@@ -59,7 +58,7 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 		hideCheckboxes: true,
 		title: parameters?.title,
 		seedText: 'This Item',
-		resultComponent: <Result />,
+		resultComponent: <VerticalResult />,
 		onAddToCart: (e, data) => addToCart(data),
 		ctaInline: false,
 		limit: 3,
