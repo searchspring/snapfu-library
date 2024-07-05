@@ -31,7 +31,7 @@ const VerticalResult = observer((props) => {
 
 			{seed ? (
 				<div className="ss-bundled-result__seperator-wrapper">
-					<div className="ss-bundled-result__seperator-wrapper__iconWrapper">
+					<div className="ss-bundled-result__seperator-wrapper__icon-wrapper">
 						<Icon icon={'plus-thin'} />
 					</div>
 				</div>
