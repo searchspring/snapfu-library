@@ -16,7 +16,7 @@ import './{{ snapfu.variables.component }}.scss';
  *  - cannot tie into external scripting
  *  - all styling and fonts must be bundled
  *  - lazy loading should be disabled
- *  - each result must have id={\`ss-emailrec\${index}\`}
+ *  - each result must have id={`ss-emailrec${index}`}
  *  - results should not contain any interactive elements (ie. image pagination arrows, color swatches)
  * 
  * Test:
@@ -33,7 +33,7 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 			<Fragment>
 				{store.results.map((result, idx) => (
 					/* THIS OUTER "ss-emailrec" WRAPPER SHOULD NOT BE REMOVED, IT IS REQUIRED */
-					<div key={idx} id={`ss-emailrec\${idx}`} style={{ display: 'block', width: '240px' }}>
+					<div key={idx} id={`ss-emailrec${idx}`} style={{ display: 'block', width: '240px' }}>
 						{/* BEGIN result component changes */}
 						<Result
 							result={result}
