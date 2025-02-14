@@ -36,6 +36,7 @@ export const {{ snapfu.variables.component }} = observer((props) => {
 					<div key={idx} id={`ss-emailrec${idx}`} style={{ display: 'block', width: '240px' }}>
 						{/* BEGIN result component changes */}
 						<Result
+							controller={controller}
 							result={result}
 							hideBadge
 							theme={{
